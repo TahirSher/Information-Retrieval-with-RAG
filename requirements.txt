@@ -5,3 +5,4 @@ faiss-cpu
 PyMuPDF 
 requests
 numpy
+openai
