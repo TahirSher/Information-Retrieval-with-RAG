@@ -5,7 +5,6 @@ import faiss
 import numpy as np
 import requests
 import fitz  # PyMuPDF for PDF text extraction
-import os
 
 # Load your data from PDF
 @st.cache_resource
@@ -26,8 +25,8 @@ def initialize_embeddings(data):
     index.add(np.array(embeddings))
     return embedder, index
 
-# Load the API key from environment variables
-openai_api_key = os.getenv("RAG_OPENAI_API_KEY")  # Fetch from environment
+# Load the API key from Streamlit secrets
+openai_api_key = st.secrets.get("RAG_OPENAI_API_KEY")
 
 if not openai_api_key:
     st.error("OpenAI API key not found. Please set the 'RAG_OPENAI_API_KEY' environment variable.")
@@ -91,3 +90,4 @@ else:
                 st.write("Please enter a question.")
     else:
         st.write("Please upload a PDF file to start.")
+
