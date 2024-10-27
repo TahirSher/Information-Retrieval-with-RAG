@@ -26,7 +26,7 @@ def initialize_embeddings(data):
     return embedder, index
 
 # OpenAI API setup
-openai_api_key = "RAG API KEY"  # Replace with your actual OpenAI API key
+openai_api_key = "RAG_OPENAI_API_KEY"  # Replace with your actual OpenAI API key
 
 # Function to retrieve top-k similar documents from FAISS index
 def retrieve(query, embedder, index, data, top_k=5):
