@@ -25,6 +25,17 @@ def initialize_embeddings(data):
     index.add(np.array(embeddings))
     return embedder, index
 
+import os
+import requests
+
+# Load the API key from environment variables
+openai_api_key = os.getenv("RAG_OPENAI_API_KEY")  # Ensure this matches the name you set in GitHub
+
+headers = {
+    "Authorization": f"Bearer {openai_api_key}",
+    "Content-Type": "application/json"
+}
+
 # OpenAI API setup
 openai_api_key = "RAG_OPENAI_API_KEY"  # Replace with your actual OpenAI API key
 
